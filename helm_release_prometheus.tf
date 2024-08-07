@@ -8,4 +8,5 @@ resource "helm_release" "prometheus" {
   values = [
     file("${path.module}/values/prometheus-values.yaml")
   ]
+  depends_on = [kubernetes_namespace.monitoring, helm_release.metrics_server]
 }

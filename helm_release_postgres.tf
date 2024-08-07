@@ -4,8 +4,8 @@ resource "kubernetes_storage_class" "ebs_storage_class" {
   }
 
   storage_provisioner = "ebs.csi.aws.com"
-  volume_binding_mode  = "WaitForFirstConsumer"
-  reclaim_policy       = "Delete"
+  volume_binding_mode = "WaitForFirstConsumer"
+  reclaim_policy      = "Delete"
 
   parameters = {
     "csi.storage.k8s.io/fstype" = "xfs"
@@ -24,28 +24,28 @@ resource "kubernetes_storage_class" "ebs_storage_class" {
       ]
     }
   }
-  depends_on = [ module.eks, null_resource.kubeconfig]
+  depends_on = [module.eks, null_resource.kubeconfig]
 }
 
 resource "helm_release" "postgres" {
   name       = "postgres"
   repository = "https://charts.bitnami.com/bitnami"
   chart      = "postgresql"
-  version    = "15.5.20" 
+  version    = "15.5.20"
   namespace  = "cve-consumer-namespace"
 
-  values = ["${file("${path.module}/values/postgres-values.yaml")}"]
   set {
-    name = "global.postgresql.auth.username"
+    name  = "global.postgresql.auth.username"
     value = var.db_user
   }
   set {
-    name = "global.postgresql.auth.password"
+    name  = "global.postgresql.auth.password"
     value = var.db_password
   }
   set {
-    name = "global.postgresql.auth.database"
+    name  = "global.postgresql.auth.database"
     value = var.db_name
   }
-  depends_on = [ kubernetes_storage_class.ebs_storage_class,kubernetes_namespace.cve-consumer]
+  values     = ["${file("${path.module}/values/postgres-values.yaml")}"]
+  depends_on = [kubernetes_storage_class.ebs_storage_class, kubernetes_namespace.cve-consumer]
 }

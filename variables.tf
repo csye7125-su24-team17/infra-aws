@@ -144,31 +144,25 @@ variable "dockerconfigjson" {
 }
 
 variable "db_user" {
-  type        = string
+  type = string
 }
 variable "db_password" {
-  type        = string
+  type = string
 }
 variable "db_name" {
-  type        = string
+  type = string
 }
 variable "db_hostname" {
-  type        = string
+  type = string
 }
 variable "grafana_username" {
-  type        = string
+  type = string
 }
 variable "grafana_password" {
-  type        = string
-}
-variable "aws_access_key" {
-  type        = string
-}
-variable "aws_secret_access_key" {
-  type        = string
+  type = string
 }
 variable "cluster_autoscaler_image_tag" {
-  type        = string
+  type = string
 }
 
 variable "tls_cert" {

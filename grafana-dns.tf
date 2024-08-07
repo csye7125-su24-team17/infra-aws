@@ -6,7 +6,7 @@ data "kubernetes_service" "istio_gateway" {
   }
   # Depends on the Istio Gateway Helm chart that creates the Gateway service of type Load Balancer
   depends_on = [
-    helm_release.gateway 
+    helm_release.gateway
   ]
 }
 
@@ -23,13 +23,13 @@ data "aws_route53_zone" "selected" {
 
 # Create Route 53 A Record
 resource "aws_route53_record" "grafana" {
-  zone_id = data.aws_route53_zone.selected.zone_id 
+  zone_id = data.aws_route53_zone.selected.zone_id
   name    = "grafana.eashanroy.me"
   type    = "A"
 
   alias {
     name                   = local.lb_hostname
-    zone_id                = "Z35SXDOTRQ7X7K"  # Route 53 Hosted Zone ID for LB in US East Region
+    zone_id                = "Z35SXDOTRQ7X7K" # Route 53 Hosted Zone ID for LB in US East Region
     evaluate_target_health = false
   }
 

@@ -21,7 +21,7 @@ resource "aws_iam_role" "eks_worker_node_role" {
         Action = "sts:AssumeRoleWithWebIdentity"
         Condition = {
           StringEquals = {
-            "${module.eks.oidc_provider}:sub" : [ 
+            "${module.eks.oidc_provider}:sub" : [
               # adding cluster autoscaler service account, fluent bit service account
               "system:serviceaccount:cluster-autoscaler-namespace:cluster-autoscaler",
               "system:serviceaccount:amazon-cloudwatch:fluent-bit"

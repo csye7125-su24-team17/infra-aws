@@ -9,8 +9,7 @@ resource "helm_release" "fluentbit_logs" {
   repository = "https://github.com/csye7125-su24-team17/helm-fluentBit-logs.git"
   chart      = var.chart_path_fluentbit
   version    = "0.1.0"
-  namespace = kubernetes_namespace.amazon-cloudwatch.metadata[0].name
+  namespace  = kubernetes_namespace.amazon-cloudwatch.metadata[0].name
 
-  depends_on = [module.eks, kubernetes_namespace.amazon-cloudwatch]
+  depends_on = [kubernetes_namespace.amazon-cloudwatch]
 }
- 

@@ -5,10 +5,10 @@ resource "kubernetes_secret" "grafana_secret" {
   }
   type = "Opaque"
   data = {
-    admin-user = var.grafana_username
+    admin-user     = var.grafana_username
     admin-password = var.grafana_password
   }
-  depends_on = [ kubernetes_namespace.monitoring ]
+  depends_on = [kubernetes_namespace.monitoring]
 }
 
 resource "helm_release" "grafana" {
@@ -23,18 +23,18 @@ resource "helm_release" "grafana" {
   ]
 
   set {
-    name = "admin.existingSecret"
+    name  = "admin.existingSecret"
     value = "grafana-credentials"
   }
   set {
-    name = "admin.userKey"
+    name  = "admin.userKey"
     value = "admin-user"
   }
   set {
-    name = "admin.passwordKey"
+    name  = "admin.passwordKey"
     value = "admin-password"
   }
-  depends_on = [ kubernetes_secret.grafana_secret ]
+  depends_on = [kubernetes_secret.grafana_secret]
 }
 
 # resource "kubernetes_secret" "grafana_tls" {
