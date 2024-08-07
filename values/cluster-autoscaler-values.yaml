@@ -1,9 +1,9 @@
 rbac:
   serviceAccount:
-    create: false
-    # name: cluster-autoscaler
-    # annotations:
-    #   eks.amazonaws.com/role-arn: arn:aws:iam::637423520668:role/eksClusterRole
+    create: true
+    name: cluster-autoscaler
+    annotations:
+      eks.amazonaws.com/role-arn: arn:aws:iam::637423520668:role/eksWorkerNodeRole
 
 cloudProvider: aws
 autoDiscovery:

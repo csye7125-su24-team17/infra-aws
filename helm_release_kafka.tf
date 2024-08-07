@@ -8,5 +8,5 @@ resource "helm_release" "kafka" {
   ]
   namespace = kubernetes_namespace.kafka.metadata[0].name
 
-  depends_on = [module.eks, kubernetes_namespace.kafka]
+  depends_on = [kubernetes_namespace.kafka]
 }
