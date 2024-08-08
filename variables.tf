@@ -78,9 +78,6 @@ variable "eks_cluster_authentication_mode" {
 variable "eks_cluster_ip_family" {
   type = string
 }
-variable "eks_cluster_service_role" {
-  type = string
-}
 variable "eks_cluster_node_group_name" {
   type = string
 }
