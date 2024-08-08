@@ -66,3 +66,9 @@ resource "kubernetes_namespace" "monitoring" {
   }
   depends_on = [module.eks, null_resource.kubeconfig]
 }
+resource "kubernetes_namespace" "external_secrets" {
+  metadata {
+    name = "external-secrets"
+  }
+  depends_on = [module.eks, null_resource.kubeconfig]
+}

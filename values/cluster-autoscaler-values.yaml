@@ -5,6 +5,9 @@ rbac:
     annotations:
       eks.amazonaws.com/role-arn: arn:aws:iam::637423520668:role/eksWorkerNodeRole
 
+podAnnotations:
+  sidecar.istio.io/inject: "false"
+
 cloudProvider: aws
 autoDiscovery:
   clusterName: eks-cluster
