@@ -34,7 +34,7 @@ resource "helm_release" "grafana" {
     name  = "admin.passwordKey"
     value = "admin-password"
   }
-  depends_on = [kubernetes_secret.grafana_secret]
+  depends_on = [kubernetes_secret.grafana_secret, helm_release.prometheus]
 }
 
 # resource "kubernetes_secret" "grafana_tls" {

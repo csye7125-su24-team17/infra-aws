@@ -8,5 +8,5 @@ resource "helm_release" "prometheus" {
   values = [
     file("${path.module}/values/prometheus-values.yaml")
   ]
-  depends_on = [kubernetes_namespace.monitoring, helm_release.metrics_server]
+  depends_on = [kubernetes_namespace.monitoring, helm_release.metrics_server, helm_release.kafka_exporter, helm_release.postgres]
 }

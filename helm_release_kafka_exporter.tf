@@ -9,5 +9,5 @@ resource "helm_release" "kafka_exporter" {
   values = [
     file("${path.module}/values/kafka-exporter-values.yaml")
   ]
-  depends_on = [kubernetes_namespace.monitoring]
+  depends_on = [kubernetes_namespace.monitoring, helm_release.kafka]
 }
