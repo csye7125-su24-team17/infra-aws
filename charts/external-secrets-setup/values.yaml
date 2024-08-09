@@ -1,1 +1,2 @@
 dockerhash: "{{ .dockerhash | toString }}"
+refreshInterval: "1h"
