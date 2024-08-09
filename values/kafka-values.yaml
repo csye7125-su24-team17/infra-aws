@@ -38,7 +38,7 @@ provisioning:
       partitions: 3
       replicationFactor: 2
       config:
-        max.message.bytes: 64000
+        max.message.bytes: 10485760
         flush.messages: 1
 
 kraft:
