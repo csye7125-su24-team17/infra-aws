@@ -49,3 +49,7 @@ zookeeper:
   persistence:
     storageClass: "gp2"
     size: 10Gi
+
+metrics:
+  jmx:
+    enabled: true
