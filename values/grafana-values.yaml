@@ -70,3 +70,11 @@ dashboards:
       gnetId: 15762
       revision: 18
       datasource: Prometheus
+    postgres-exporter:
+      gnetId: 12485
+      revision: 1
+      datasource: Prometheus
+    kafka-topics:
+      gnetId: 10122
+      revision: 1
+      datasource: Prometheus

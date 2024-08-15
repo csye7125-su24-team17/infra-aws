@@ -28,8 +28,15 @@ server:
 extraScrapeConfigs: |
   - job_name: 'kafka-exporter'
     static_configs:
-      - targets: ['kafka-exporter-prometheus-kafka-exporter.monitoring.svc.cluster.local:9308']
+      - targets: 
+        - 'kafka-exporter-prometheus-kafka-exporter.monitoring.svc.cluster.local:9308'
+
+  - job_name: 'kafka-exporter-jmx'
+    static_configs:
+      - targets: 
+        - 'kafka-jmx-metrics.kafka-namespace.svc.cluster.local:5556'
 
   - job_name: 'postgres-exporter'
     static_configs:
-      - targets: ['postgres-metrics.cve-consumer-namespace.svc.cluster.local:9187']
+      - targets: 
+        - 'postgres-metrics.cve-consumer-namespace.svc.cluster.local:9187'

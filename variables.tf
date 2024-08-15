@@ -135,11 +135,6 @@ variable "kubeconfig_path" {
   type        = string
 }
 
-variable "dockerconfigjson" {
-  description = "Base64 encoded Docker config JSON"
-  type        = string
-}
-
 variable "db_user" {
   type = string
 }
@@ -159,13 +154,5 @@ variable "grafana_password" {
   type = string
 }
 variable "cluster_autoscaler_image_tag" {
-  type = string
-}
-
-variable "tls_cert" {
-  type = string
-}
-
-variable "tls_key" {
   type = string
 }
