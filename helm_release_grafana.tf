@@ -37,10 +37,10 @@ resource "helm_release" "grafana" {
   depends_on = [kubernetes_secret.grafana_secret, helm_release.prometheus]
 }
 
-# resource "kubernetes_secret" "grafana_tls" {
+# resource "kubernetes_secret" "tls_secret" {
 #   metadata {
-#     name      = "grafana-tls"
-#     namespace = "monitoring"
+#     name      = "tls-secret"
+#     namespace = "llm-namespace"
 #   }
 
 #   data = {
