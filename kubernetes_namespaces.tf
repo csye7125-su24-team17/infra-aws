@@ -72,3 +72,10 @@ resource "kubernetes_namespace" "external_secrets" {
   }
   depends_on = [module.eks, null_resource.kubeconfig]
 }
+
+resource "kubernetes_namespace" "llm-namespace" {
+  metadata {
+    name = "llm-namespace"
+  }
+  depends_on = [module.eks, null_resource.kubeconfig]
+}
